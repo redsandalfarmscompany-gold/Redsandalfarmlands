@@ -294,9 +294,28 @@
   /* ---------- gallery ---------- */
   .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
   .gallery-tile{
-    aspect-ratio:1/1; border-radius:12px; background:linear-gradient(135deg,#e6d9c3,#f3ead9);
-    display:flex;align-items:center;justify-content:center;text-align:center;padding:14px;
-    border:1px dashed var(--gold); color:var(--ink-soft); font-size:12.5px;
+    aspect-ratio:1/1; border-radius:12px; overflow:hidden;
+    background:var(--paper); border:1px solid var(--line); cursor:pointer;
+    position:relative;
+  }
+  .gallery-tile img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    transition:transform .4s ease;
+  }
+  .gallery-tile:hover img{transform:scale(1.06);}
+  .gallery-tile.hidden-extra{display:none;}
+  .gallery-tile.hidden-extra.show{display:block;}
+  .gallery-more{display:block;margin:26px auto 0;}
+  .lightbox{
+    position:fixed; inset:0; background:rgba(20,10,10,0.88); z-index:200;
+    display:none; align-items:center; justify-content:center; padding:30px;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:min(90vw,900px);max-height:85vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.5);}
+  .lightbox-close{
+    position:absolute; top:22px; right:28px; width:42px;height:42px;border-radius:50%;
+    background:rgba(255,255,255,.12); color:#fff; border:1px solid rgba(255,255,255,.3);
+    font-size:22px; display:flex;align-items:center;justify-content:center;
   }
 
   /* ---------- contact ---------- */
@@ -793,21 +812,55 @@
     <div class="section-head reveal">
       <span class="kicker"><span class="lang-en">Gallery</span><span class="lang-te">గ్యాలరీ</span></span>
       <h2><span class="lang-en">See our ventures on the ground</span><span class="lang-te">మా వెంచర్లను ప్రత్యక్షంగా చూడండి</span></h2>
-      <p><span class="lang-en">Photo &amp; video placeholders — swap these tiles with real site photos, drone shots and plantation videos.</span>
-      <span class="lang-te">ఫోటో &amp; వీడియో ప్లేస్‌హోల్డర్లు — వీటిని నిజమైన సైట్ ఫోటోలు, డ్రోన్ షాట్‌లతో మార్చండి.</span></p>
+      <p><span class="lang-en">Real photos from our ventures — farm lands, site views, plantation growth and development work. Tap any photo to enlarge.</span>
+      <span class="lang-te">మా RedSandalGreenInvestment వెంచర్ గ్యాలరీలో ఫామ్ ల్యాండ్స్, సైట్ వ్యూస్, ప్లాంటేషన్ మరియు అభివృద్ధి పనుల ఫోటోలను చూడండి.</span></p>
     </div>
-    <div class="gallery-grid reveal">
-      <div class="gallery-tile"><span class="lang-en">Farm Land Photo</span><span class="lang-te">ఫామ్ ల్యాండ్ ఫోటో</span></div>
-      <div class="gallery-tile"><span class="lang-en">Plantation Growth</span><span class="lang-te">మొక్కల పెరుగుదల</span></div>
-      <div class="gallery-tile"><span class="lang-en">Site Visit Photo</span><span class="lang-te">సైట్ విజిట్ ఫోటో</span></div>
-      <div class="gallery-tile"><span class="lang-en">Drone Aerial View</span><span class="lang-te">డ్రోన్ వ్యూ</span></div>
-      <div class="gallery-tile"><span class="lang-en">Fencing &amp; Security</span><span class="lang-te">ఫెన్సింగ్ &amp; భద్రత</span></div>
-      <div class="gallery-tile"><span class="lang-en">Irrigation Setup</span><span class="lang-te">ఇరిగేషన్ సెటప్</span></div>
-      <div class="gallery-tile"><span class="lang-en">Product: Red Sandal Soap</span><span class="lang-te">ఉత్పత్తి: ఎర్రచందనం సబ్బు</span></div>
-      <div class="gallery-tile"><span class="lang-en">Registration Event</span><span class="lang-te">రిజిస్ట్రేషన్ ఈవెంట్</span></div>
+    <div class="gallery-grid reveal" id="gallery-grid">
+      <div class="gallery-tile"><img src="https://i.ibb.co/gMdnQsBz/1.jpg" alt="Red Sandal Farm Land Gallery Image 1" loading="lazy"></div>
+      <div class="gallery-tile"><img src="https://i.ibb.co/MkXDwPGq/2.jpg" alt="Red Sandal Farm Land Gallery Image 2" loading="lazy"></div>
+      <div class="gallery-tile"><img src="https://i.ibb.co/84cKcvhG/3.jpg" alt="Red Sandal Farm Land Gallery Image 3" loading="lazy"></div>
+      <div class="gallery-tile"><img src="https://i.ibb.co/GZn4w5z/4.jpg" alt="Red Sandal Farm Land Gallery Image 4" loading="lazy"></div>
+      <div class="gallery-tile"><img src="https://i.ibb.co/bgRwkcLv/5.jpg" alt="Red Sandal Farm Land Gallery Image 5" loading="lazy"></div>
+      <div class="gallery-tile"><img src="https://i.ibb.co/20s9C4tx/6.jpg" alt="Red Sandal Farm Land Gallery Image 6" loading="lazy"></div>
+      <div class="gallery-tile"><img src="https://i.ibb.co/JwcBKCTm/7.jpg" alt="Red Sandal Farm Land Gallery Image 7" loading="lazy"></div>
+      <div class="gallery-tile"><img src="https://i.ibb.co/sphg41s3/daaaaa.jpg" alt="Red Sandal Farm Land Site View" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/HDBwfxmT/daadaaa.jpg" alt="Red Sandal Farm Land Development" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/m5vXd6Ks/Whats-App-Image-2024-04-04-at-11-57-57-PM.webp" alt="Red Sandal Venture Photo" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/n8fynCMJ/hj.jpg" alt="Farm Land Gallery Photo" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/0j2B5JdJ/image-1.webp" alt="Red Sandal Plantation Image" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/twXBYCyG/image-2.webp" alt="Farm Land Investment Image" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/GfztsbTS/Image-3-1.webp" alt="Red Sandal Site Image" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/xtg6yj0r/Image-3-2.webp" alt="Red Sandal Green Investment Gallery" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/mrYFk661/image-4-1.webp" alt="Red Sandal Farm Land Photo" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/h1Bv24Db/Image-5.webp" alt="Agricultural Land Photo" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/cS8RSMyv/image-6.webp" alt="Red Sandal Farm Site" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/XkX2d0gT/Image-6-1.webp" alt="Farm Land Site View" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/r2LvFm30/Image-6-2.webp" alt="Red Sandal Site Maintenance" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/DgTp5Rd3/image-7.webp" alt="Farm Land Gallery View" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/Txhp1vFq/Image-7-1.webp" alt="Red Sandal Venture Site" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/PsBfd9x0/image-8.webp" alt="Red Sandal Farm Lands" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/TDt2HW2t/Image-8-1.webp" alt="Red Sandal Farm Land Investment" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/N62Tg81x/image-9.webp" alt="Red Sandal Green Investment Photo" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/bgT5M5fG/Image-9-1.webp" alt="Red Sandal Gallery Photo" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/jZQcdM1S/image-10.webp" alt="Farm Land Development Photo" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/84QRWJKm/Image-10-1.webp" alt="Red Sandal Plantation Gallery" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/N6vR6rks/Image-12.webp" alt="Venture Gallery Image" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/99tGN0jS/images-2.webp" alt="Red Sandal Farm Image" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/pvh509cB/images-3.webp" alt="Agricultural Farm Land Image" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/6JfyDSHk/images-4.webp" alt="Red Sandal Farm Lands Company Image" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/hJCqK2vb/Whats-App-Image-2024-04-04-at-11-57-55-PM.webp" alt="Red Sandal Farm Land Site Photo" loading="lazy"></div>
+      <div class="gallery-tile hidden-extra"><img src="https://i.ibb.co/R4k0ZD0b/sdsfs.jpg" alt="Red Sandal Venture Final Gallery Image" loading="lazy"></div>
     </div>
+    <button class="btn btn-outline gallery-more" id="gallery-more">
+      <span class="lang-en">View All Photos</span><span class="lang-te">అన్ని ఫోటోలు చూడండి</span>
+    </button>
   </div>
 </section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
 
 <!-- ============ FAQ ============ -->
 <section id="faq">
@@ -1071,6 +1124,29 @@ faqs.forEach((f, i)=>{
     }
   });
 });
+
+/* ---------- gallery lightbox + show more ---------- */
+const galleryMoreBtn = document.getElementById('gallery-more');
+let galleryExpanded = false;
+galleryMoreBtn.addEventListener('click', function(){
+  galleryExpanded = !galleryExpanded;
+  document.querySelectorAll('.gallery-tile.hidden-extra').forEach(t=>t.classList.toggle('show', galleryExpanded));
+  this.innerHTML = galleryExpanded
+    ? '<span class="lang-en">Show Less</span><span class="lang-te">తక్కువ చూపించు</span>'
+    : '<span class="lang-en">View All Photos</span><span class="lang-te">అన్ని ఫోటోలు చూడండి</span>';
+});
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+document.querySelectorAll('.gallery-tile img').forEach(img=>{
+  img.addEventListener('click', ()=>{
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add('open');
+  });
+});
+document.getElementById('lightbox-close').addEventListener('click', ()=>lightbox.classList.remove('open'));
+lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) lightbox.classList.remove('open'); });
+document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') lightbox.classList.remove('open'); });
 
 /* ---------- contact form -> WhatsApp ---------- */
 document.getElementById('enquiry-form').addEventListener('submit', function(e){
