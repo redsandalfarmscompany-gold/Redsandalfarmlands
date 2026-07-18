@@ -377,6 +377,12 @@
   }
   .contact-card h3{color:#FBF3E6;font-size:20px;margin-bottom:10px;}
   .contact-card p{color:#DCC9B7;font-size:14.5px;margin-bottom:18px;}
+  .contact-social-row{
+    margin-top:22px; padding-top:18px; border-top:1px solid rgba(255,255,255,.14);
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
+  }
+  .contact-social-row > span{font-size:13px;color:#DCC9B7;font-weight:600;}
+  .contact-social-row .footer-social{margin-top:0;}
   .contact-line{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;}
   .map-note{
     border:1px solid var(--line);background:var(--paper-card);border-radius:var(--radius);
@@ -992,18 +998,30 @@
           <span class="lang-te">ఏదో పొరపాటు జరిగింది. దయచేసి మళ్ళీ ప్రయత్నించండి లేదా WhatsApp చేయండి.</span>
         </div>
       </form>
-      <div style="max-width:none;">
-        <button type="button" class="btn btn-outline" id="whatsapp-fill-btn" style="width:100%;justify-content:center;margin-top:14px;">
+      <div class="contact-direct">
+        <button type="button" class="btn btn-outline" id="whatsapp-fill-btn" style="width:100%;justify-content:center;">
           <span class="lang-en">Or Send Same Details via WhatsApp</span><span class="lang-te">లేదా WhatsApp ద్వారా పంపండి</span>
         </button>
-      </div>
-      <div class="contact-direct">
         <div class="contact-card">
           <h3><span class="lang-en">Talk to Us Directly</span><span class="lang-te">నేరుగా మాట్లాడండి</span></h3>
           <p><span class="lang-en">Nagaraju Kunderla, Property Advisor</span><span class="lang-te">నాగరాజు కుందర్ల, ప్రాపర్టీ అడ్వైజర్</span></p>
           <div class="contact-line">
             <a class="btn btn-gold" href="tel:+917799008955">📞 <span class="lang-en">Call Now</span><span class="lang-te">కాల్ చేయండి</span></a>
             <a class="btn btn-outline" style="color:#F6EFE2;border-color:rgba(246,239,226,.5);" href="https://wa.me/917799008955" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+          <div class="contact-social-row">
+            <span class="lang-en">Follow our journey</span><span class="lang-te">మా ప్రయాణాన్ని అనుసరించండి</span>
+            <div class="footer-social">
+              <a class="social-instagram" href="https://www.instagram.com/redsandalfarmlandscompany" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.25-2.2a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
+              </a>
+              <a class="social-facebook" href="https://www.facebook.com/Redsandalfarmlandscompany/" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
+              </a>
+              <a class="social-youtube" href="https://www.youtube.com/@redsandalfarmscompany" target="_blank" rel="noopener" aria-label="YouTube">
+                <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.5v-7l6.2 3.5-6.2 3.5z"/></svg>
+              </a>
+            </div>
           </div>
         </div>
         <div class="map-note">
@@ -1012,20 +1030,6 @@
             <span class="lang-en">Vijayawada &middot; Hyderabad &middot; Bangalore &middot; Chennai &middot; All over Andhra Pradesh &amp; Telangana</span>
             <span class="lang-te">విజయవాడ &middot; హైదరాబాద్ &middot; బెంగళూరు &middot; చెన్నై &middot; ఆంధ్రప్రదేశ్ &amp; తెలంగాణ అంతటా</span>
           </p>
-        </div>
-        <div class="map-note" style="text-align:center;">
-          <strong><span class="lang-en">Connect With Us</span><span class="lang-te">మమ్మల్ని సంప్రదించండి</span></strong>
-          <div class="footer-social" style="justify-content:center;margin-top:14px;">
-            <a class="social-instagram" href="https://www.instagram.com/redsandalfarmlandscompany" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.25-2.2a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
-            </a>
-            <a class="social-facebook" href="https://www.facebook.com/Redsandalfarmlandscompany/" target="_blank" rel="noopener" aria-label="Facebook">
-              <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
-            </a>
-            <a class="social-youtube" href="https://www.youtube.com/@redsandalfarmscompany" target="_blank" rel="noopener" aria-label="YouTube">
-              <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.5v-7l6.2 3.5-6.2 3.5z"/></svg>
-            </a>
-          </div>
         </div>
       </div>
     </div>
@@ -1053,6 +1057,19 @@
       <div class="field">
         <label><span class="lang-en">City / Location</span><span class="lang-te">నగరం / ప్రాంతం</span></label>
         <input type="text" name="city" id="t-city" placeholder="e.g. Guntur">
+      </div>
+      <div class="field">
+        <label><span class="lang-en">Current Occupation</span><span class="lang-te">ప్రస్తుత వృత్తి</span></label>
+        <select name="occupation" id="t-occupation">
+          <option value=""><span class="lang-en">Select Occupation</span></option>
+          <option value="Student">Student</option>
+          <option value="Salaried Employee">Salaried Employee</option>
+          <option value="Business Owner">Business Owner</option>
+          <option value="Real Estate Agent">Real Estate Agent</option>
+          <option value="Insurance / Finance Agent">Insurance / Finance Agent</option>
+          <option value="Unemployed / Looking for Work">Unemployed / Looking for Work</option>
+          <option value="Other">Other</option>
+        </select>
       </div>
       <input type="hidden" name="form_type" value="Join Our Team Application">
       <div style="display:flex;gap:12px;flex-wrap:wrap;">
@@ -1192,7 +1209,8 @@ const projects = [
   {en:"Baduguleru", te:"బడుగులేరు", hwyEn:"Ongole - Kurnool Highway", hwyTe:"ఒంగోలు - కర్నూలు హైవే"},
   {en:"Tadevari Palle", te:"తాడేవరి పల్లె", hwyEn:"Ongole - Kurnool Highway", hwyTe:"ఒంగోలు - కర్నూలు హైవే"},
   {en:"Ponguru", te:"పొంగూరు", hwyEn:"Beside NH-67, Marripadu", hwyTe:"NH-67 పక్కన, మర్రిపాడు"},
-  {en:"Dubhagunta", te:"దూభగుంట", hwyEn:"Vinjamur - Atmakur Road", hwyTe:"విన్జామూరు - ఆత్మకూరు రోడ్"}
+  {en:"Dubhagunta", te:"దూభగుంట", hwyEn:"Vinjamur - Atmakur Road", hwyTe:"విన్జామూరు - ఆత్మకూరు రోడ్"},
+  {en:"Venture 23", te:"వెంచర్ 23", hwyEn:"Details Coming Soon", hwyTe:"వివరాలు త్వరలో"}
 ];
 const projGrid = document.getElementById('proj-grid');
 function renderProjects(){
@@ -1368,7 +1386,8 @@ document.getElementById('team-whatsapp-btn').addEventListener('click', function(
   const name = document.getElementById('t-name').value;
   const phone = document.getElementById('t-phone').value;
   const city = document.getElementById('t-city').value;
-  const text = `Hi, I'm interested in joining the Red Sandal Farm Lands team as a Property Advisor / Field Agent.%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0ACity: ${encodeURIComponent(city)}`;
+  const occupation = document.getElementById('t-occupation').value;
+  const text = `Hi, I'm interested in joining the Red Sandal Farm Lands team as a Property Advisor / Field Agent.%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0ACity: ${encodeURIComponent(city)}%0AOccupation: ${encodeURIComponent(occupation)}`;
   window.open(`https://wa.me/917799008955?text=${text}`, '_blank');
 });
 </script>
