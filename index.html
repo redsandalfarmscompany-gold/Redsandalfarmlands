@@ -184,8 +184,11 @@
   body.site-te .brand-text .name{font-family:'Baloo Tamma 2','Noto Serif Telugu',serif;}
   .brand-text .tag{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);}
   nav.links{display:flex;gap:26px;align-items:center;}
-  nav.links a{font-size:14.5px;font-weight:500;color:var(--ink);position:relative;}
-  nav.links a:hover{color:var(--maroon);}
+  nav.links a{
+    font-size:14px;font-weight:700;color:var(--maroon-deep);position:relative;
+    padding:8px 14px;border-radius:8px;transition:background .2s ease, color .2s ease;
+  }
+  nav.links a:hover{background:var(--maroon);color:#fff;}
   .header-cta{display:flex;align-items:center;gap:10px;}
   .lang-toggle{
     display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;
@@ -553,7 +556,7 @@
       padding:14px 24px 20px; box-shadow:0 16px 30px rgba(0,0,0,.1);
     }
     nav.links.open{display:flex;}
-    nav.links a{width:100%;padding:10px 0;border-bottom:1px solid var(--line);}
+    nav.links a{width:100%;padding:10px 14px;border-radius:0;border-bottom:1px solid var(--line);}
     nav.links a:last-child{border-bottom:none;}
     .menu-toggle{display:block;}
   }
@@ -691,7 +694,7 @@
         <span class="lang-te">ఫేజ్ 24 &middot; చేజర్ల, SPSR నెల్లూరు జిల్లా</span>
       </span>
       <h1>
-        <span class="lang-en">Wealth that grows <em>ring by ring</em>, year after year.</span>
+        <span class="lang-en">Wealth that grows every year — <em>a legacy for generations</em>.</span>
         <span class="lang-te">ప్రతి సంవత్సరం పెరిగే సంపద, <em>తరతరాలకు వారసత్వం</em>.</span>
       </h1>
       <p class="lede">
@@ -737,7 +740,8 @@
     <div class="trust-item"><span class="dot"></span><span class="lang-en">ISO 9001:2015 Certified</span><span class="lang-te">ISO 9001:2015 సర్టిఫైడ్</span></div>
     <div class="trust-item"><span class="dot"></span><span class="lang-en">International Export License</span><span class="lang-te">అంతర్జాతీయ ఎగుమతి లైసెన్స్</span></div>
     <div class="trust-item"><span class="dot"></span><span class="lang-en">FSSAI Registered</span><span class="lang-te">FSSAI నమోదిత</span></div>
-    <div class="trust-item"><span class="dot"></span><span class="lang-en">Sub-Registrar Office Registration</span><span class="lang-te">సబ్ రిజిస్ట్రార్ కార్యాలయ నమోదు</span></div>
+    <div class="trust-item"><span class="dot"></span><span class="lang-en">Maintenance MOU Sub-Registrar Office Registration</span><span class="lang-te">మెయింటెనెన్స్ MOU సబ్ రిజిస్ట్రార్ కార్యాలయ నమోదు</span></div>
+    <div class="trust-item"><span class="dot"></span><span class="lang-en">Red Sandal By-Products Manufacturer</span><span class="lang-te">ఎర్రచందనం ఉప-ఉత్పత్తుల తయారీదారు</span></div>
     <div class="trust-item"><span class="dot"></span><span class="lang-en">Clear &amp; Marketable Title</span><span class="lang-te">క్లియర్ టైటిల్</span></div>
   </div>
 </div>
@@ -1241,7 +1245,7 @@
       <input type="hidden" name="form_type" value="Join Our Team Application">
       <div style="display:flex;gap:12px;flex-wrap:wrap;">
         <button type="submit" class="btn btn-primary" style="flex:1;justify-content:center;min-width:180px;">
-          <span class="lang-en">Apply via Email</span><span class="lang-te">ఇమెయిల్ ద్వారా అప్లై చేయండి</span>
+          <span class="lang-en">Submit Application</span><span class="lang-te">దరఖాస్తు సమర్పించండి</span>
         </button>
         <button type="button" class="btn btn-outline" id="team-whatsapp-btn" style="flex:1;justify-content:center;min-width:180px;">
           <span class="lang-en">Apply via WhatsApp</span><span class="lang-te">WhatsApp ద్వారా అప్లై చేయండి</span>
