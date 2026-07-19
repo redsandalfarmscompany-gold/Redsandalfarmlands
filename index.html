@@ -155,6 +155,12 @@
   }
   .topbar .container{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
   .topbar a{opacity:.9;}
+  #topbar-lang-toggle{
+    border-color:rgba(255,255,255,.35);
+  }
+  #topbar-lang-toggle button{color:#E7D9C8;}
+  #topbar-lang-toggle button.active{background:var(--gold);color:#3a2a08;}
+  #topbar-lang-toggle button{padding:3px 10px;font-size:11.5px;}
   .topbar a:hover{opacity:1;text-decoration:underline;}
   .topbar-links{display:flex;gap:18px;flex-wrap:wrap;}
 
@@ -180,13 +186,14 @@
   .brand-mark.logo-mark{padding:2px;background:#fff;}
   .brand-mark.logo-mark img{width:100%;height:100%;border-radius:50%;object-fit:cover;}
   .brand-text{line-height:1.15;}
-  .brand-text .name{font-family:'Fraunces',serif;font-weight:700;font-size:17px;color:var(--maroon-deep);}
+  .brand-text .name{font-family:'Fraunces',serif;font-weight:700;font-size:16px;color:var(--maroon-deep);line-height:1.2;}
   body.site-te .brand-text .name{font-family:'Baloo Tamma 2','Noto Serif Telugu',serif;}
   .brand-text .tag{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);}
   nav.links{display:flex;gap:26px;align-items:center;}
   nav.links a{
     font-size:14px;font-weight:700;color:var(--maroon-deep);position:relative;
     padding:8px 14px;border-radius:8px;transition:background .2s ease, color .2s ease;
+    white-space:nowrap;
   }
   nav.links a:hover{background:var(--maroon);color:#fff;}
   .header-cta{display:flex;align-items:center;gap:10px;}
@@ -548,7 +555,11 @@
   .fab.call{background:var(--maroon);}
 
   /* ---------- responsive ---------- */
-  @media (max-width:1080px){
+  @media (min-width:1340px){
+    .brand-text .name{white-space:nowrap;}
+    nav.links{gap:2px;}
+  }
+  @media (max-width:1339px){
     nav.links{
       display:none; position:absolute; top:100%; left:0; right:0;
       flex-direction:column; align-items:flex-start; gap:4px;
@@ -612,9 +623,13 @@
       <a href="tel:+917799008955">📞 +91 77990 08955</a>
       <a href="https://wa.me/917799008955" target="_blank" rel="noopener">WhatsApp Us</a>
     </div>
-    <div class="topbar-links">
+    <div class="topbar-links" style="align-items:center;">
       <span class="lang-en">Nellore &middot; Prakasam &middot; Palnadu Districts, Andhra Pradesh</span>
       <span class="lang-te">నెల్లూరు &middot; ప్రకాశం &middot; పల్నాడు జిల్లాలు, ఆంధ్రప్రదేశ్</span>
+      <div class="lang-toggle" id="topbar-lang-toggle">
+        <button id="btn-en">English</button>
+        <button id="btn-te" class="active">తెలుగు</button>
+      </div>
     </div>
   </div>
 </div>
@@ -645,10 +660,6 @@
       <a href="#contact"><span class="lang-en">Contact</span><span class="lang-te">సంప్రదించండి</span></a>
     </nav>
     <div class="header-cta">
-      <div class="lang-toggle">
-        <button id="btn-en">English</button>
-        <button id="btn-te" class="active">తెలుగు</button>
-      </div>
       <a class="btn btn-primary" href="#contact">
         <span class="lang-en">Book Site Visit</span>
         <span class="lang-te">సైట్ విజిట్ బుక్ చేయండి</span>
@@ -1159,6 +1170,9 @@
           <span class="lang-en">Sent directly to our team's email &amp; also available on WhatsApp below.</span>
           <span class="lang-te">నేరుగా మా టీమ్ ఇమెయిల్‌కు వెళ్తుంది &amp; కింద WhatsApp కూడా అందుబాటులో ఉంది.</span>
         </p>
+        <button type="button" class="btn btn-outline" id="whatsapp-fill-btn" style="width:100%;justify-content:center;">
+          <span class="lang-en">Or Send Same Details via WhatsApp</span><span class="lang-te">లేదా WhatsApp ద్వారా పంపండి</span>
+        </button>
         <div class="form-success" id="form-success">
           <span class="lang-en">✓ Your enquiry has been submitted successfully! Our team will contact you shortly.</span>
           <span class="lang-te">✓ మీ అభ్యర్థన విజయవంతంగా నమోదు చేయబడింది! మా టీమ్ త్వరలో మీతో సంప్రదిస్తుంది.</span>
@@ -1169,9 +1183,6 @@
         </div>
       </form>
       <div class="contact-direct">
-        <button type="button" class="btn btn-outline" id="whatsapp-fill-btn" style="width:100%;justify-content:center;">
-          <span class="lang-en">Or Send Same Details via WhatsApp</span><span class="lang-te">లేదా WhatsApp ద్వారా పంపండి</span>
-        </button>
         <div class="contact-card">
           <h3><span class="lang-en">Talk to Us Directly</span><span class="lang-te">నేరుగా మాట్లాడండి</span></h3>
           <p><span class="lang-en">Nagaraju Kunderla, Property Advisor</span><span class="lang-te">నాగరాజు కుందర్ల, ప్రాపర్టీ అడ్వైజర్</span></p>
