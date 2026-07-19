@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="te">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -85,7 +85,7 @@
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px;}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px;position:relative;}
   .brand{display:flex;align-items:center;gap:10px;}
   .brand-mark{
     width:42px;height:42px;border-radius:50%;
@@ -109,12 +109,13 @@
   .header-cta{display:flex;align-items:center;gap:10px;}
   .lang-toggle{
     display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;
-    font-size:13px;font-weight:600;
+    font-size:13px;font-weight:600;flex-shrink:0;
   }
   .lang-toggle button{
-    border:none;background:transparent;padding:7px 13px;color:var(--ink-soft);
+    border:none;background:transparent;padding:8px 15px;color:var(--ink-soft);white-space:nowrap;
   }
   .lang-toggle button.active{background:var(--maroon);color:#fff;}
+  #btn-te{font-family:'Anek Telugu','Noto Sans Telugu',sans-serif;}
   .btn{
     display:inline-flex;align-items:center;gap:8px;
     padding:11px 20px;border-radius:999px;font-weight:600;font-size:14px;
@@ -455,6 +456,18 @@
   .fab.call{background:var(--maroon);}
 
   /* ---------- responsive ---------- */
+  @media (max-width:1080px){
+    nav.links{
+      display:none; position:absolute; top:100%; left:0; right:0;
+      flex-direction:column; align-items:flex-start; gap:4px;
+      background:var(--paper-card); border-bottom:1px solid var(--line);
+      padding:14px 24px 20px; box-shadow:0 16px 30px rgba(0,0,0,.1);
+    }
+    nav.links.open{display:flex;}
+    nav.links a{width:100%;padding:10px 0;border-bottom:1px solid var(--line);}
+    nav.links a:last-child{border-bottom:none;}
+    .menu-toggle{display:block;}
+  }
   @media (max-width:980px){
     .hero .container{grid-template-columns:1fr;}
     .hero-logo-card{order:-1;max-width:320px;margin:0 auto;padding:32px 20px;}
@@ -469,8 +482,6 @@
     .testimonial-grid{grid-template-columns:repeat(2,1fr);}
   }
   @media (max-width:720px){
-    nav.links{display:none;}
-    .menu-toggle{display:block;}
     .hero h1{font-size:32px;}
     .plans-grid{grid-template-columns:1fr;}
     .why-grid{grid-template-columns:1fr;}
@@ -481,10 +492,24 @@
     .footer-grid{grid-template-columns:1fr;}
     .testimonial-grid{grid-template-columns:1fr;}
   }
+  @media (max-width:600px){
+    .topbar .container{font-size:11.5px;gap:6px;}
+    .topbar-links{gap:10px;}
+    .nav{padding:10px 0;gap:8px;}
+    .brand{gap:7px;min-width:0;}
+    .brand-mark{width:36px;height:36px;}
+    .brand-text .name{font-size:13.5px;line-height:1.2;}
+    .brand-text .tag{font-size:8.5px;white-space:normal;letter-spacing:.03em;}
+    .header-cta{gap:6px;}
+    .lang-toggle{font-size:11px;}
+    .lang-toggle button{padding:6px 9px;}
+    .header-cta .btn-primary{padding:8px 12px;font-size:11.5px;}
+    .menu-toggle{font-size:19px;padding:0 2px;}
+  }
   :focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
 </style>
 </head>
-<body class="site-en">
+<body class="site-te">
 
 <!-- ============ TOP BAR ============ -->
 <div class="topbar">
@@ -516,24 +541,25 @@
         </div>
       </div>
     </div>
-    <nav class="links">
+    <nav class="links" id="nav-links">
       <a href="#plans"><span class="lang-en">Investment Plans</span><span class="lang-te">ఇన్వెస్ట్‌మెంట్ ప్లాన్స్</span></a>
       <a href="#why"><span class="lang-en">Why Us</span><span class="lang-te">మా ప్రత్యేకతలు</span></a>
       <a href="#projects"><span class="lang-en">Projects</span><span class="lang-te">ప్రాజెక్టులు</span></a>
       <a href="#about"><span class="lang-en">About</span><span class="lang-te">మా గురించి</span></a>
+      <a href="#join-team"><span class="lang-en">Careers</span><span class="lang-te">కెరీర్</span></a>
       <a href="#faq"><span class="lang-en">FAQ</span><span class="lang-te">FAQ</span></a>
       <a href="#contact"><span class="lang-en">Contact</span><span class="lang-te">సంప్రదించండి</span></a>
     </nav>
     <div class="header-cta">
       <div class="lang-toggle">
-        <button id="btn-en" class="active">EN</button>
-        <button id="btn-te">తె</button>
+        <button id="btn-en">English</button>
+        <button id="btn-te" class="active">తెలుగు</button>
       </div>
       <a class="btn btn-primary" href="#contact">
         <span class="lang-en">Book Site Visit</span>
         <span class="lang-te">సైట్ విజిట్ బుక్ చేయండి</span>
       </a>
-      <button class="menu-toggle" aria-label="Menu">☰</button>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</button>
     </div>
   </div>
 </header>
@@ -575,7 +601,7 @@
       </span>
       <h1>
         <span class="lang-en">Wealth that grows <em>ring by ring</em>, year after year.</span>
-        <span class="lang-te">సంవత్సరాలుగా <em>పొర పొరగా</em> పెరిగే సంపద.</span>
+        <span class="lang-te">ప్రతి సంవత్సరం పెరిగే సంపద, <em>తరతరాలకు వారసత్వం</em>.</span>
       </h1>
       <p class="lede">
         <span class="lang-en">Own legally registered red sandalwood farmland in the only region on earth where <em>Pterocarpus santalinus</em> naturally thrives — near the Seshachalam &amp; Nallamala hills of Andhra Pradesh. 24 ventures completed. Every plot registered in your name.</span>
@@ -1205,12 +1231,30 @@
 
 <!-- ============ FLOATING BUTTONS ============ -->
 <div class="float-btns">
-  <a class="fab whatsapp" href="https://wa.me/917799008955?text=Hi%2C%20I%20am%20interested%20in%20Red%20Sandal%20Farm%20Lands" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
-  <a class="fab call" href="tel:+917799008955" aria-label="Call">📞</a>
+  <a class="fab whatsapp" href="https://wa.me/917799008955?text=Hi%2C%20I%20am%20interested%20in%20Red%20Sandal%20Farm%20Lands" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32" width="28" height="28"><path fill="#fff" d="M16.004 3C9.376 3 4 8.373 4 15c0 2.31.653 4.47 1.786 6.307L4 29l7.86-1.752A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm0 21.75c-1.94 0-3.75-.55-5.29-1.5l-.38-.226-4.664 1.04 1.02-4.55-.246-.394A9.7 9.7 0 0 1 5.25 15c0-5.93 4.822-10.75 10.754-10.75S26.75 9.07 26.75 15 21.936 24.75 16.004 24.75z"/><path fill="#fff" d="M21.62 17.47c-.303-.152-1.79-.883-2.068-.984-.278-.102-.48-.152-.682.152-.202.303-.784.984-.96 1.187-.177.202-.354.227-.657.076-.303-.152-1.278-.47-2.434-1.502-.9-.803-1.508-1.795-1.685-2.098-.177-.303-.019-.467.133-.618.137-.136.303-.354.454-.53.152-.177.202-.303.303-.505.101-.202.05-.38-.025-.531-.076-.152-.682-1.645-.934-2.253-.246-.591-.497-.512-.682-.522l-.581-.01c-.202 0-.53.076-.808.38-.278.303-1.06 1.036-1.06 2.527s1.086 2.933 1.237 3.135c.152.202 2.137 3.263 5.176 4.575.723.312 1.287.498 1.727.638.726.23 1.386.198 1.908.12.582-.087 1.79-.732 2.042-1.44.253-.708.253-1.314.177-1.44-.076-.127-.278-.202-.581-.354z"/></svg>
+  </a>
+  <a class="fab call" href="tel:+917799008955" aria-label="Call">
+    <svg viewBox="0 0 24 24" width="22" height="22"><path fill="#fff" d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg>
+  </a>
 </div>
 
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---------- mobile nav toggle ---------- */
+const menuToggle = document.getElementById('menu-toggle');
+const navLinksEl = document.getElementById('nav-links');
+menuToggle.addEventListener('click', ()=>{
+  navLinksEl.classList.toggle('open');
+  menuToggle.textContent = navLinksEl.classList.contains('open') ? '✕' : '☰';
+});
+navLinksEl.querySelectorAll('a').forEach(a=>{
+  a.addEventListener('click', ()=>{
+    navLinksEl.classList.remove('open');
+    menuToggle.textContent = '☰';
+  });
+});
 
 /* ---------- language toggle ---------- */
 const btnEn = document.getElementById('btn-en');
@@ -1226,7 +1270,7 @@ function setLang(lang){
 btnEn.addEventListener('click', () => setLang('en'));
 btnTe.addEventListener('click', () => setLang('te'));
 const savedLang = localStorage.getItem('rsfl-lang');
-if(savedLang) setLang(savedLang);
+setLang(savedLang || 'te');
 
 /* ---------- scroll reveal ---------- */
 const revealEls = document.querySelectorAll('.reveal');
@@ -1345,48 +1389,57 @@ faqs.forEach((f, i)=>{
 /* ---------- testimonials ---------- */
 const testimonials = [
   {
-    name:"V Mohana Rao", loc:"Mangalagiri, Andhra Pradesh", initial:"M",
-    quote:"ఎర్ర చందనం ఫామ్ ల్యాండ్‌లో invest చేయడం నాకు కొత్త అనుభవం. నాగరాజు గారు ప్రతి డాక్యుమెంట్ వివరంగా చూపించి, నమ్మకంగా ముందుకు తీసుకెళ్లారు.",
+    name:"V Mohana Rao", locEn:"Mangalagiri, Andhra Pradesh", locTe:"మంగళగిరి, ఆంధ్రప్రదేశ్", initial:"M",
+    quoteTe:"ఎర్ర చందనం ఫామ్ ల్యాండ్‌లో invest చేయడం నాకు కొత్త అనుభవం. నాగరాజు గారు ప్రతి డాక్యుమెంట్ వివరంగా చూపించి, నమ్మకంగా ముందుకు తీసుకెళ్లారు.",
+    quoteEn:"Investing in Red Sandal Farm Lands was a completely new experience for me. Mr. Nagaraju explained every document in detail and guided me forward with complete trust.",
     color:"var(--maroon)"
   },
   {
-    name:"Y Venu", loc:"Kandukuru, Andhra Pradesh", initial:"V",
-    quote:"I was unsure about investing in Red Sandal Farm Lands initially, but the detailed explanation and site visit support gave me the confidence to go ahead.",
+    name:"Y Venu", locEn:"Kandukuru, Andhra Pradesh", locTe:"కందుకూరు, ఆంధ్రప్రదేశ్", initial:"V",
+    quoteEn:"I was unsure about investing in Red Sandal Farm Lands initially, but the detailed explanation and site visit support gave me the confidence to go ahead.",
+    quoteTe:"మొదట్లో Red Sandal Farm Lands లో invest చేయడం గురించి నాకు కొంచెం సందేహం ఉండేది, కానీ వివరణాత్మక వివరణ మరియు సైట్ విజిట్ సపోర్ట్ నాకు ముందుకు వెళ్ళే ధైర్యాన్ని ఇచ్చింది.",
     color:"var(--forest)"
   },
   {
-    name:"Rama Krishna", loc:"Poranki, Vijayawada, Andhra Pradesh", initial:"R",
-    quote:"Red Sandal Farmlands investment గురించి పూర్తి క్లారిటీతో వివరించారు. ఇప్పటివరకు process చాలా transparent గా జరిగింది.",
+    name:"Rama Krishna", locEn:"Poranki, Vijayawada, Andhra Pradesh", locTe:"పోరంకి, విజయవాడ, ఆంధ్రప్రదేశ్", initial:"R",
+    quoteTe:"Red Sandal Farmlands investment గురించి పూర్తి క్లారిటీతో వివరించారు. ఇప్పటివరకు process చాలా transparent గా జరిగింది.",
+    quoteEn:"They explained everything about the Red Sandal Farmlands investment with complete clarity. The entire process has been very transparent so far.",
     color:"var(--gold)"
   },
   {
-    name:"T Adi Narayana", loc:"Mangalagiri, Andhra Pradesh", initial:"T",
-    quote:"మా family కోసం ఒక long-term asset కావాలని అనుకున్నాం. 12-సంవత్సరాల రిజిస్టర్డ్ మెయింటెనెన్స్ అగ్రిమెంట్ చూశాక పూర్తి confidence వచ్చింది.",
+    name:"T Adi Narayana", locEn:"Mangalagiri, Andhra Pradesh", locTe:"మంగళగిరి, ఆంధ్రప్రదేశ్", initial:"T",
+    quoteTe:"మా family కోసం ఒక long-term asset కావాలని అనుకున్నాం. 12-సంవత్సరాల రిజిస్టర్డ్ మెయింటెనెన్స్ అగ్రిమెంట్ చూశాక పూర్తి confidence వచ్చింది.",
+    quoteEn:"We wanted a long-term asset for our family. Seeing the 12-year registered maintenance agreement gave us complete confidence to invest.",
     color:"var(--maroon-soft)"
   },
   {
-    name:"K Srinivasa Rao", loc:"Vijayawada, Andhra Pradesh", initial:"K",
-    quote:"The site visit was well organized and every question I had about the legal documents was answered clearly. Investing here felt completely safe.",
+    name:"K Srinivasa Rao", locEn:"Vijayawada, Andhra Pradesh", locTe:"విజయవాడ, ఆంధ్రప్రదేశ్", initial:"K",
+    quoteEn:"The site visit was well organized and every question I had about the legal documents was answered clearly. Investing here felt completely safe.",
+    quoteTe:"సైట్ విజిట్ చాలా బాగా ఏర్పాటు చేశారు, లీగల్ డాక్యుమెంట్ల గురించి నా ప్రశ్నలన్నింటికీ స్పష్టంగా సమాధానం ఇచ్చారు. ఇక్కడ invest చేయడం పూర్తి సురక్షితంగా అనిపించింది.",
     color:"var(--forest)"
   },
   {
-    name:"B Venkateswara Rao", loc:"Vijayawada, Andhra Pradesh", initial:"B",
-    quote:"పట్టాదారు పాస్ బుక్ మరియు రిజిస్ట్రేషన్ డాక్యుమెంట్లు అన్నీ సకాలంలో అందించారు. చాలా professional గా వ్యవహరించారు.",
+    name:"B Venkateswara Rao", locEn:"Vijayawada, Andhra Pradesh", locTe:"విజయవాడ, ఆంధ్రప్రదేశ్", initial:"B",
+    quoteTe:"పట్టాదారు పాస్ బుక్ మరియు రిజిస్ట్రేషన్ డాక్యుమెంట్లు అన్నీ సకాలంలో అందించారు. చాలా professional గా వ్యవహరించారు.",
+    quoteEn:"The Pattadar Passbook and registration documents were all provided right on time. The entire team handled everything very professionally.",
     color:"var(--gold)"
   },
   {
-    name:"Annapurna", loc:"Guntur, Andhra Pradesh", initial:"A",
-    quote:"As a woman investing on my own, I really appreciated how patiently the team explained every step. It never once felt rushed or confusing.",
+    name:"Annapurna", locEn:"Guntur, Andhra Pradesh", locTe:"గుంటూరు, ఆంధ్రప్రదేశ్", initial:"A",
+    quoteEn:"As a woman investing on my own, I really appreciated how patiently the team explained every step. It never once felt rushed or confusing.",
+    quoteTe:"ఒక మహిళగా నా సొంతంగా invest చేస్తున్నప్పుడు, టీమ్ ప్రతి స్టెప్‌ను ఓపికగా వివరించిన తీరు నాకు చాలా నచ్చింది. ఎప్పుడూ తొందరపాటుగా లేదా గందరగోళంగా అనిపించలేదు.",
     color:"var(--maroon)"
   },
   {
-    name:"G Kondala Rao", loc:"Atmakur (Mangalagiri), Andhra Pradesh", initial:"G",
-    quote:"మా దగ్గరలో ఉన్న వెంచర్ అని తెలిసి నేరుగా సైట్‌కి వెళ్లి చూశాను. ఫెన్సింగ్, మెయింటెనెన్స్ అంతా చాలా బాగుంది.",
+    name:"G Kondala Rao", locEn:"Atmakur (Mangalagiri), Andhra Pradesh", locTe:"ఆత్మకూరు (మంగళగిరి), ఆంధ్రప్రదేశ్", initial:"G",
+    quoteTe:"మా దగ్గరలో ఉన్న వెంచర్ అని తెలిసి నేరుగా సైట్‌కి వెళ్లి చూశాను. ఫెన్సింగ్, మెయింటెనెన్స్ అంతా చాలా బాగుంది.",
+    quoteEn:"When I found out there was a venture close to us, I went directly to the site to see it myself. The fencing and maintenance were excellent.",
     color:"var(--forest)"
   },
   {
-    name:"S Venkateswara Rao", loc:"Hyderabad, Telangana", initial:"S",
-    quote:"Even staying in Hyderabad, the team kept me updated with monthly progress reports and photos. That kind of transparency from a distance is rare.",
+    name:"S Venkateswara Rao", locEn:"Hyderabad, Telangana", locTe:"హైదరాబాద్, తెలంగాణ", initial:"S",
+    quoteEn:"Even staying in Hyderabad, the team kept me updated with monthly progress reports and photos. That kind of transparency from a distance is rare.",
+    quoteTe:"నేను హైదరాబాద్‌లో ఉన్నప్పటికీ, టీమ్ ప్రతి నెలా ప్రోగ్రెస్ రిపోర్ట్‌లు మరియు ఫోటోలతో అప్డేట్ చేస్తూనే ఉంది. దూరం నుండి ఇంత పారదర్శకత అరుదు.",
     color:"var(--maroon-soft)"
   }
 ];
@@ -1397,12 +1450,12 @@ testimonials.forEach(t=>{
   card.innerHTML = `
     <span class="t-quote-mark">&ldquo;</span>
     <span class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-    <p class="t-text">${t.quote}</p>
+    <p class="t-text"><span class="lang-en">${t.quoteEn}</span><span class="lang-te">${t.quoteTe}</span></p>
     <div class="t-footer">
       <div class="t-avatar" style="background:${t.color};">${t.initial}</div>
       <div>
         <div class="t-name">${t.name}</div>
-        <div class="t-loc">${t.loc}</div>
+        <div class="t-loc"><span class="lang-en">${t.locEn}</span><span class="lang-te">${t.locTe}</span></div>
       </div>
     </div>`;
   testimonialGrid.appendChild(card);
