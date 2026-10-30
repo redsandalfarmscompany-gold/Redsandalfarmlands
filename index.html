@@ -111,7 +111,7 @@
     --shadow: 0 20px 50px -25px rgba(74,20,32,0.35);
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth;scroll-padding-top:88px;}
   body{
     margin:0;
     background:var(--paper);
@@ -197,7 +197,7 @@
   nav.links{display:flex;gap:26px;align-items:center;}
   nav.links a{
     font-size:14px;font-weight:700;color:var(--maroon-deep);position:relative;
-    padding:8px 14px;border-radius:8px;transition:background .2s ease, color .2s ease;
+    padding:8px 10px;border-radius:8px;transition:background .2s ease, color .2s ease;
     white-space:nowrap;
   }
   nav.links a:hover{background:var(--maroon);color:#fff;}
@@ -497,6 +497,8 @@
 
   /* ---------- contact ---------- */
   .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:44px;}
+  .contact-wrap > *, .team-wrap > *{min-width:0;}
+  .contact-form .btn, .contact-card .btn{white-space:normal;text-align:center;}
   .team-wrap{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;}
   .team-benefits{
     background:linear-gradient(135deg,var(--maroon-deep),var(--maroon));
@@ -578,11 +580,11 @@
   .fab.call{background:var(--maroon);}
 
   /* ---------- responsive ---------- */
-  @media (min-width:1340px){
+  @media (min-width:1400px){
     .brand-text .name{white-space:nowrap;}
     nav.links{gap:2px;}
   }
-  @media (max-width:1339px){
+  @media (max-width:1399px){
     nav.links{
       display:none; position:absolute; top:100%; left:0; right:0;
       flex-direction:column; align-items:flex-start; gap:4px;
@@ -677,6 +679,7 @@
       <a href="#plans"><span class="lang-en">Investment Plans</span><span class="lang-te">ఇన్వెస్ట్‌మెంట్ ప్లాన్స్</span></a>
       <a href="#why"><span class="lang-en">Why Us</span><span class="lang-te">మా ప్రత్యేకతలు</span></a>
       <a href="#projects"><span class="lang-en">Projects</span><span class="lang-te">ప్రాజెక్టులు</span></a>
+      <a href="#gallery"><span class="lang-en">Gallery</span><span class="lang-te">గ్యాలరీ</span></a>
       <a href="#about"><span class="lang-en">About</span><span class="lang-te">మా గురించి</span></a>
       <a href="#join-team"><span class="lang-en">Careers</span><span class="lang-te">కెరీర్</span></a>
       <a href="#faq"><span class="lang-en">FAQ</span><span class="lang-te">FAQ</span></a>
@@ -1068,7 +1071,7 @@
 </section>
 
 <!-- ============ GALLERY ============ -->
-<section class="section-alt">
+<section class="section-alt" id="gallery">
   <div class="container">
     <div class="section-head reveal">
       <span class="kicker"><span class="lang-en">Gallery</span><span class="lang-te">గ్యాలరీ</span></span>
@@ -1343,6 +1346,7 @@
           <li><a href="#plans"><span class="lang-en">Investment Plans</span><span class="lang-te">ప్లాన్స్</span></a></li>
           <li><a href="#why"><span class="lang-en">Why Us</span><span class="lang-te">ప్రత్యేకతలు</span></a></li>
           <li><a href="#projects"><span class="lang-en">Projects</span><span class="lang-te">ప్రాజెక్టులు</span></a></li>
+          <li><a href="#gallery"><span class="lang-en">Gallery</span><span class="lang-te">గ్యాలరీ</span></a></li>
           <li><a href="#about"><span class="lang-en">About Us</span><span class="lang-te">మా గురించి</span></a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
